@@ -3,7 +3,7 @@
 × 1，不在参数数组中，
 × 2，最小的一个。
 */
-int find_absent_and_minimum(int a [], int n){
+int find_absent_min(int a [], int n){
     if (a[0] > 1) return 1;
     for (int i = 0; i < n -1; i++){
         if (a[i] + 1 != a[i+1]) {
