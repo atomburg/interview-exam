@@ -19,6 +19,12 @@ int find_absent_min(int a [], int n){
 // find_absent_min(a, sizeof(a)/sizeof(*a));
 
 
+// 编译时计算阶乘
 // -std=c++11 or /std:c++11
 constexpr int factorial(int n) {return (n==1?1:n*(n-1));}
 // int array [factorial(3)] = {0,1,2,3,4,5};
+
+
+// vector的使用
+// reserve(n) or shrink_to_fit() is operating capacity(), check vetcor::capacity().
+// resize(), erase(), push_back() is operation storage, check vector::size().
