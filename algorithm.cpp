@@ -19,3 +19,6 @@ int find_absent_min(int a [], int n){
 // find_absent_min(a, sizeof(a)/sizeof(*a));
 
 
+// -std=c++11 or /std:c++11
+constexpr int factorial(int n) {return (n==1?1:n*(n-1));}
+// int array [factorial(3)] = {0,1,2,3,4,5};
