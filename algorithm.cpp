@@ -80,6 +80,7 @@ int main(int argc, char * argv[])
 }
 
 // 数一下整数中有几个1
+// 因为n&=n-1总是清除最右侧的bit=1的位
 int count = 0; while(true){
     n &= n-1; count++;
 };
