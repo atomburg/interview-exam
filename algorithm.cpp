@@ -49,7 +49,7 @@ int numbers[fact<5>];// = {0, ..., 119};
 #define right(i)  (2*i+1)
 #define isroot(i) (i==0)
 
-
+// 上浮
 void adjust(int * h, int tail){
     while(!isroot(tail)) {
         if (h[tail] > h [ parent(tail)]){
@@ -61,9 +61,23 @@ void adjust(int * h, int tail){
     } 
 }
 
+// 下沉操作
+void sink(int * h, int tail){
+    int i = 0;
+    while(left(i)<=tail){
+        if (right(i) <= tail && h[right(i)]<h[left(i)] && h[right(i)]<h[i]) {
+           swap(h[right(i)], h[i]);
+           i = right(i);
+        }else if (h[left(i)]<h[i]){
+           swap(h[left(i)],h[i]);
+           i = left(i);
+        }else break;
+    }
+}
+
 int main(int argc, char * argv[])
 {
-    int num [10] = {10,12,1,2,5,18,20, 11, 15, 14};
+    int num [10] = {110,112,101,102,105,118,120, 111, 115, 114};
 
     int heap[sizeof(num)];
     
@@ -73,8 +87,16 @@ int main(int argc, char * argv[])
     for(int i = 0; i < 10; i++){
         heap[tail++] = num[i];
         adjust(heap, tail-1);   
+    } 
+    for(int i = 0; i < 10; i++) printf("%d,", heap[i]); puts("\n");
+    // topK选取测试。
+    for (int i = 200; i < 300; i++){
+        if (heap[0] < i){ 
+            heap[0] = i;
+            sink(heap, tail-1);
+        }
     }
-    for(int i = 0; i < 10; i++) printf("%d,", heap[i]);
+    for(int i = 0; i < 10; i++) printf("%d,", heap[i]); puts("\n");
     fflush(0);
     return 0;
 }
