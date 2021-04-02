@@ -79,3 +79,7 @@ int main(int argc, char * argv[])
     return 0;
 }
 
+// 数一下整数中有几个1
+int count = 0; while(true){
+    n &= n-1; count++;
+};
