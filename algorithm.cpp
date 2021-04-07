@@ -106,3 +106,27 @@ int main(int argc, char * argv[])
 int count = 0; while(true){
     n &= n-1; count++;
 };
+
+// 二叉树遍历：用数组表示完全二叉树，0节点表示不存在的节点。
+#include <stdio.h>
+#define parent(i) (i/2)
+#define left(i)  (2*i+1)
+#define right(i) (2*i+2)
+void visit(char * t, int tail, int i){
+    if (t[i] == '0') return ;
+    // middle-root, left-root-right
+    // left
+    if (left(i)<tail) visit(t, tail, left(i));
+    // root
+    printf("%c\n",t[i]);
+    // right
+    if (right(i)<tail) visit(t, tail, right(i));
+}
+int main(int argc, char * argv[])
+{
+    const char * t = argv[1];
+    printf("tree: %s\n", t);
+    visit("1020034000056", 13, 0);
+    return 0;
+}
+
