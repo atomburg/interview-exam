@@ -43,10 +43,16 @@ int numbers[fact<5>];// = {0, ..., 119};
 // heap的构造
 #include <stdio.h>
 #include <string.h>
-
+/*
+            [0]
+           /   \
+        [1]     [2]
+        / \     /  \
+      [3]  [4] [5]  [6] 
+*/
 #define parent(i) (i/2)
-#define left(i)   (2*i)
-#define right(i)  (2*i+1)
+#define left(i)   (2*i+1)
+#define right(i)  (2*i+2)
 #define isroot(i) (i==0)
 
 // 上浮
